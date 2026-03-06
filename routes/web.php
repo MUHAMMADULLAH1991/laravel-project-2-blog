@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomePageController;
 use Illuminate\Support\Facades\Auth;
@@ -13,4 +15,9 @@ Auth::routes([
     'register' => false,
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('admin/logout', [AdminController::class, 'logout']);
+
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+
+
+Route::get('/admin/create-blog', [BlogController::class, 'createBlog']);
