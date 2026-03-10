@@ -21,3 +21,4 @@ Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 
 
 Route::get('/admin/create-blog', [BlogController::class, 'createBlog']);
+Route::post('/admin/store-blog', [BlogController::class, 'storeBlog']);
