@@ -10,7 +10,7 @@ Route::get('/', [HomePageController::class, 'index']);
 Route::get('/about-me', [HomePageController::class, 'aboutme']);
 Route::get('/contact-me', [HomePageController::class, 'contactMe']);
 Route::post('/store-contact-message', [HomePageController::class, 'storeContactMessage']);
-Route::get('/blog-details', [HomePageController::class, 'blogDetails']);
+Route::get('/blog-details/{id}', [HomePageController::class, 'blogDetails']);
 
 Auth::routes([
     'register' => false,
@@ -19,6 +19,11 @@ Auth::routes([
 Route::get('admin/logout', [AdminController::class, 'logout']);
 
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+Route::get('admin/settings', [AdminController::class, 'showSettings']);
+Route::post('admin/settings-update', [AdminController::class, 'updateSettings']);
+
+Route::get('admin/contact-messages', [AdminController::class, 'showMessages']);
+Route::get('admin/contact-messages/delete/{id}', [AdminController::class, 'deleteMessages']);
 
 
 Route::get('/admin/create-blog', [BlogController::class, 'createBlog']);

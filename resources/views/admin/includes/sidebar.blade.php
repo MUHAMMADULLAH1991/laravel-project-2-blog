@@ -29,7 +29,7 @@
               data-accordion="false"
               id="navigation"
             >
-              <li class="nav-item menu-open">
+              <li class="nav-item">
                 <a href="#" class="nav-link active">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
@@ -51,6 +51,18 @@
                     </a>
                   </li>
                 </ul>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/contact-messages')}}" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>Contact Messages</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/settings')}}" class="nav-link">
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>Settings</p>
+                </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('admin/logout')}}" class="nav-link">

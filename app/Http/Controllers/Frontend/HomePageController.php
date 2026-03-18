@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\ContactMessage;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,9 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        return view('frontende.index');
+        $blogs = Blog::orderBy('created_at', 'desc')->paginate(5);
+        // dd($blogs);
+        return view('frontende.index', compact('blogs'));
     }
 
     public function aboutme()
@@ -38,8 +41,10 @@ class HomePageController extends Controller
         return redirect()->back();
     }
 
-    public function blogDetails()
+    public function blogDetails($id)
     {
-        return view('frontende.blog-details');
+        $blog = Blog::find($id);
+        // dd($blog);
+        return view('frontende.blog-details', compact('blog'));
     }
 }
